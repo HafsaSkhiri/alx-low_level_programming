@@ -1,43 +1,26 @@
 #include "main.h"
 /**
-  * alx_putnbr - prints numbers < 1000
-  * @n: first parameter
-  */
-void	alx_putnbr(int n)
-{
-	if (n < 10)
-	{
-		putchar('0');
-		putchar('0' + n);
-	}
-	else
-	{
-		putchar('0' + n / 10);
-		putchar('0' + n % 10);
-	}
-}
-
-/**
-  * jack_bauer - function that prints every minute of the day.
+  * jack_bauer - print every minute of a day
+  * Description: print minutes 00:00 to 23:59
   */
 void jack_bauer(void)
 {
-	int h;
-	int m;
+	int hours = 0;
+	int min = 0;
 
-	h = 0;
-	m = 0;
-	while (h < 24)
+	while (hours < 24)
 	{
-		alx_putnbr(h);
-		putchar(':');
-		alx_putnbr(m);
-		putchar('\n');
-		m++;
-		if (m == 60)
+		while (min < 60)
 		{
-			h++;
-			m = 0;
+			_putchar('0' + (hours / 10));
+			_putchar('0' + (hours % 10));
+			_putchar(':');
+			_putchar('0' + (min / 10));
+			_putchar('0' + (min % 10));
+			_putchar('\n');
+			min++;
 		}
+		min = 0;
+		hours++;
 	}
 }
